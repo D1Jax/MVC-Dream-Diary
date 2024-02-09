@@ -8,25 +8,39 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Todos</h1>
+    <section class="layout">
+    <h1> Dream Diary</h1>
     <ul>
     <% todos.forEach( el => { %>
+        
             <li class='todoItem' data-id='<%=el._id%>'>
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                <span class='date'>Added on: <%= el.createdAt.toLocaleString() %></span> <!-- Display the date -->
                 <span class='del'> Delete </span>
+                <span class='edit'> Edit </span>
             </li>
+       
     <% }) %>    
     </ul>
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+    <h2>You have <%= left %> diary entries <%=  user.userName %></h2>
 
     <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+        <textarea id="dreamDiaryInput" name="todoItem" class="large-input" placeholder="Enter a new dream"></textarea>
         <input type="submit">
     </form>
 
+    <!-- Edit form -->
+<!-- Edit form -->
+<form id="edit-form" style="display: none;" method="POST" action="/todos/editTodo">
+    <input type="hidden" id="edit-id" name="id">
+    <label for="edit-content">New Content:</label>
+    <textarea id="edit-content" name="updatedContent" required></textarea>
+    <button type="submit">Save Changes</button>
+</form>
     <a href="/logout">Logout</a>
 
     <script src="js/main.js"></script>
+</section>
 </body>
 </html>

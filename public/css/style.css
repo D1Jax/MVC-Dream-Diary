@@ -1,10 +1,71 @@
-h1{
+body {
+    font-family: Arial, sans-serif; /* Set a default font for the body */
+    margin:   0; /* Reset default margin */
+    padding:   0; /* Reset default padding */
+    background-color: #f4f4f4; /* A light background color */
+}
+
+.layout {
+    display: flex; /* Use Flexbox to layout the children */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
+    justify-content: center; /* Center children vertically */
+    padding:   20px; /* Add some padding around the layout */
+    max-width:   800px; /* Set a max-width for the layout */
+    margin:   0 auto; /* Center the layout horizontally */
+}
+
+h1 {
     color: red;
+    margin-bottom:   20px; /* Add some space below the h1 for better visual separation */
 }
-.completed{
-    text-decoration: line-through;
-    color: gray;
+
+ul {
+    list-style-type: none; /* Remove the default bullet points */
+    padding:   0; /* Reset default padding */
+    margin:   0; /* Reset default margin */
 }
-.not{
-    text-decoration: underline;
+
+.todoItem {
+    border:   1px solid #ccc;
+    padding:   10px;
+    margin-bottom:   10px;
+    background-color: #f9f9f9;
+    border-radius:   5px;
+    box-shadow:   0   2px   4px rgba(0,   0,   0,   0.1);
+    width:   100%; /* Full width of the layout */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.todoItem .not,
+.todoItem .completed {
+    display: block; /* Make the text span take up the full width of the box */
+    margin-bottom:   5px; /* Add some space between the text and other elements */
+}
+
+.todoItem .date {
+    font-size:   0.8em; /* Make the date text smaller */
+    color: #777;  
+    margin-right:  10px;/* Change the color of the date text */
+}
+
+.todoItem .del,
+.todoItem .edit {
+    cursor: pointer; /* Change the cursor to a pointer when hovering over the buttons */
+    margin-right:  10px; /* Add some space between the text and the buttons */
+}
+
+.todoItem .del:hover,
+.todoItem .edit:hover {
+    color: #007bff; /* Change the color of the buttons when hovered */
+}
+
+/* Form styles */
+form {
+    margin-top:  20px; /* Add some space above the form */
+    width:  100%; /* Full width of the layout */
+}
+
+form textarea {
+    width:  100%;
 }
